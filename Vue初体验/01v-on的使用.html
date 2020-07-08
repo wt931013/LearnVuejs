@@ -11,6 +11,9 @@
         <button @click="btnckick1()">按钮1</button>
         <!-- 如果需要传参数,却连()都没有,会输出鼠标点击事件 -->
         <button @click="btnckick1">按钮2</button>
+        <!-- 方法定义时，我们需要event对象，同时又需要其他参数 -->
+        <!-- 在调用方式，如何手动的获得浏览器参数的event对象：$event -->
+        <button @click="btnclick2(123,$event)">按钮3</button>
     </div>
 
     <script src="../js/vue.js"></script>
@@ -23,6 +26,9 @@
             methods:{
                 btnckick1(abc){
                     console.log('-----',abc)
+                },
+                btnclick2(abc,event){
+                    console.log('-------',abc,event)
                 }
             }
         })
